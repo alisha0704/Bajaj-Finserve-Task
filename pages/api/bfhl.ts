@@ -56,7 +56,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       highest_lowercase_alphabet: highestLowercaseAlphabet
         ? [highestLowercaseAlphabet]
         : [],
-      data,
     });
   } else {
     return res.status(200).json({

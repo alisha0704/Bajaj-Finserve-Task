@@ -21,18 +21,24 @@ const JsonForm: React.FC<JsonFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex flex-col items-center space-y-4">
       <textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Enter valid JSON"
         rows={6}
-        cols={50}
+        className="w-full max-w-xl p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
-      <button type="submit">Submit</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <button
+        type="submit"
+        className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+      >
+        Submit
+      </button>
+      {error && <p className="text-red-500">{error}</p>}
     </form>
   );
 };
 
 export default JsonForm;
+

@@ -50,24 +50,27 @@ const Home = () => {
   };
 
   return (
-    <> 
-     <div className="flex justify-center items-center bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-600">Bajaj Task</h1>
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 p-4">
+      <h1 className="text-4xl font-bold text-blue-600 mb-6">Bajaj Task</h1>
+      <div className="w-full max-w-xl">
+      <div className="mb-6 text-xl font-bold text-gray-800 bg-gray-100 p-4 rounded-lg shadow-md border border-gray-200">
+      JSON Input and Multi-Select Example
+      </div>
+
+        <JsonForm onSubmit={handleJsonSubmit} />
+        {dropdownVisible && (
+          <div className="mt-4">
+            <MultiSelectDropdown onChange={handleDropdownChange} />
+          </div>
+        )}
+        {filteredResponse && (
+          <div className="mt-6 bg-white p-4 rounded shadow-md">
+            <h2 className="text-2xl font-semibold mb-2">Filtered Response:</h2>
+            <pre className="bg-gray-200 p-2 rounded">{JSON.stringify(filteredResponse, null, 2)}</pre>
+          </div>
+        )}
+      </div>
     </div>
-    <div>
-      <h1>JSON Input and Multi-Select Example</h1>
-      <JsonForm onSubmit={handleJsonSubmit} />
-      {dropdownVisible && (
-        <MultiSelectDropdown onChange={handleDropdownChange} />
-      )}
-      {filteredResponse && (
-        <div>
-          <h2>Filtered Response:</h2>
-          <pre>{JSON.stringify(filteredResponse, null, 2)}</pre>
-        </div>
-      )}
-    </div>
-    </>
   );
 };
 
